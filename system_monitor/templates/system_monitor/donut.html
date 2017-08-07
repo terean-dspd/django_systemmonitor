@@ -1,0 +1,21 @@
+{% load static%}
+
+<link rel="stylesheet" href="{%static "morris.css" %}">
+<script src="{%static "jquery.min.js" %}"></script>
+<script src="{%static "raphael-min.js"%}"></script>
+<script src="{%static "morris.min.js"%}"></script>
+<div id="donut-example"></div>
+<script>
+Morris.Donut({
+  element: 'donut-example',
+  colors: [
+    'red',
+    'green'
+  ],
+  resize: true,
+  data: [
+    {label: "Disk Used %", value: {{disk_usage_free}}},
+    {label: "Disk Avaliable %", value: 100-{{disk_usage_free}}},
+  ]
+});
+</script>
