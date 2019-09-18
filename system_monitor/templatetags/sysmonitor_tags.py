@@ -16,4 +16,4 @@ def disk_donut(context):
 @register.simple_tag
 def disk_text():
     disk_usage = psutil.disk_usage(path)
-    return 'free space left (%): {}'.format(disk_usage.percent)
+    return 'free space left (%): {}'.format(100 - disk_usage.percent)
